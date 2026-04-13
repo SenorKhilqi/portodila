@@ -1,428 +1,781 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="SNSQhMnoYzMZolSQvbxXWNJEG7A6xqCqoQsHxV8KRvg">
-    <title>Portfolio - Mahasiswi Akuntansi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portofolio profesional Mahasiswa Akuntansi – Menampilkan keahlian analisis keuangan, audit, perpajakan, dan akuntansi manajemen." />
+  <meta property="og:title" content="Dhila Fadliah | Portofolio Akuntansi" />
+  <meta property="og:description"
+    content="Mahasiswa Akuntansi yang berdedikasi dengan keahlian analisis keuangan, audit, dan perpajakan." />
+  <title>Dhila Fadliah | Akuntansi Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-overlay" id="loadingScreen">
-        <div class="loading-spinner"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">₿</span>
+        <span class="logo-text">Dila<span class="logo-accent">.</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" id="nav-home">Beranda</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">Tentang</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-skills">Keahlian</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects">Proyek</a></li>
+        <li><a href="#experience" class="nav-link" id="nav-experience">Pengalaman</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Kontak</a></li>
+      </ul>
+      <a href="assets/cv-dila.pdf" download class="btn-cv" id="btn-download-cv">
+        <span>Unduh CV</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-art">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-lines"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <h2>Portfolio</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Beranda</a></li>
-                <li><a href="#about" class="nav-link">Tentang</a></li>
-                <li><a href="#education" class="nav-link">Pendidikan</a></li>
-                <li><a href="#skills" class="nav-link">Keahlian</a></li>
-                <li><a href="#experience" class="nav-link">Pengalaman</a></li>
-                <li><a href="#contact" class="nav-link">Kontak</a></li>
+    <div class="hero-container">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Tersedia untuk Magang &amp; Kolaborasi</span>
+      </div>
+      <h1 class="hero-title" id="hero-title">
+        <span class="hero-greeting">Halo, saya</span>
+        <span class="hero-name">Dhila Fadliah</span>
+        <span class="hero-role">Mahasiswa <span class="highlight-text">Akuntansi</span></span>
+      </h1>
+      <p class="hero-desc" id="hero-desc">
+        Berdedikasi dalam menganalisis data keuangan, menyusun laporan akuntansi, dan memberikan solusi berbasis angka
+        yang akurat & berkualitas tinggi.
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="#projects" class="btn-primary" id="btn-see-projects">Lihat Proyek Saya</a>
+        <a href="#contact" class="btn-outline" id="btn-contact-hero">Hubungi Saya</a>
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-count="6">0</span>
+          <span class="stat-label">Proyek Selesai</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="2">0</span>
+          <span class="stat-label">Tahun Belajar</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="4">0</span>
+          <span class="stat-label">Sertifikasi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="hero-visual">
+      <div class="profile-card">
+        <div class="profile-ring">
+          <img src="assets/profile.png" alt="Foto Profil Dhila Fadliah" class="profile-img" id="profile-img" />
+        </div>
+        <div class="floating-card card-gpa" id="card-gpa">
+          <span class="card-icon">🎓</span>
+          <div>
+            <span class="card-value">3.87</span>
+            <span class="card-desc">IPK Kumulatif</span>
+          </div>
+        </div>
+        <div class="floating-card card-cert" id="card-cert">
+          <span class="card-icon">📜</span>
+          <div>
+            <span class="card-value">Brevet A&amp;B</span>
+            <span class="card-desc">Sertifikasi Pajak</span>
+          </div>
+        </div>
+        <div class="floating-card card-soft" id="card-soft">
+          <span class="card-icon">💡</span>
+          <div>
+            <span class="card-value">MYOB</span>
+            <span class="card-desc">Ahli Software</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down" id="scroll-down" aria-label="Scroll ke bawah">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-arrow"></div>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">Tentang Saya</div>
+      <h2 class="section-title">Siapa Saya?</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-intro">
+            Saya adalah mahasiswi <strong>Akuntansi semester 4</strong> di Universitas Padjadjaran dengan semangat
+            tinggi dalam dunia keuangan dan audit. Saya percaya bahwa angka adalah bahasa universal yang menceritakan
+            kisah di balik setiap bisnis.
+          </p>
+          <p>
+            Selama perjalanan akademis saya, saya telah mendalami berbagai aspek akuntansi mulai dari akuntansi
+            keuangan, manajemen, perpajakan, hingga audit. Saya memiliki minat khusus dalam <strong>analisis laporan
+              keuangan</strong> dan <strong>sistem informasi akuntansi</strong>.
+          </p>
+          <p>
+            Di luar akademik, saya aktif di organisasi Himpunan Mahasiswa Akuntansi sebagai Kepala Divisi Keuangan,
+            melatih kemampuan kepemimpinan dan manajemen anggaran secara langsung.
+          </p>
+          <div class="about-tags">
+            <span class="tag">📊 Analisis Keuangan</span>
+            <span class="tag">🔍 Audit Internal</span>
+            <span class="tag">📋 Perpajakan</span>
+            <span class="tag">💻 SAP &amp; MYOB</span>
+            <span class="tag">📈 Riset Kuantitatif</span>
+          </div>
+        </div>
+        <div class="about-info">
+          <div class="info-card">
+            <h3>Informasi Akademik</h3>
+            <ul class="info-list">
+              <li>
+                <span class="info-icon">🎓</span>
+                <div>
+                  <strong>Universitas Padjadjaran</strong>
+                  <span>Fakultas Ekonomi & Bisnis</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">📚</span>
+                <div>
+                  <strong>S1 Akuntansi</strong>
+                  <span>Semester 4 · 2022–Sekarang</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">⭐</span>
+                <div>
+                  <strong>IPK 3.87 / 4.00</strong>
+                  <span>Cumlaude Track</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">📍</span>
+                <div>
+                  <strong>Tasikmalaya, Jawa Barat</strong>
+                  <span>Indonesia</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">📧</span>
+                <div>
+                  <strong>dhilafadliah@gmail.com</strong>
+                  <span>Email Aktif</span>
+                </div>
+              </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label">Kompetensi</div>
+      <h2 class="section-title">Keahlian & Kompetensi</h2>
+      <p class="section-sub">Kemampuan teknis dan non-teknis yang saya kuasai selama perjalanan akademis dan
+        profesional.</p>
+
+      <div class="skills-grid">
+
+        <div class="skill-category" id="skill-technical">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">📊</div>
+            <h3>Akuntansi & Keuangan</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Akuntansi Keuangan</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="92"></div>
+              </div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Halo, Saya <span class="highlight">Nama Anda</span></h1>
-                <p class="hero-subtitle">Mahasiswi Akuntansi | Calon Akuntan Profesional</p>
-                <p class="hero-description">
-                    Passionate tentang analisis keuangan, pelaporan, dan pengambilan keputusan bisnis yang berbasis data.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Hubungi Saya
-                    </a>
-                    <a href="#about" class="btn btn-secondary">
-                        <i class="fas fa-user"></i> Pelajari Lebih Lanjut
-                    </a>
-                </div>
-                <div class="scroll-indicator">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Analisis Laporan Keuangan</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title" data-text="About">Tentang Saya</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x400" alt="Profile Picture">
-                </div>
-                <div class="about-text">
-                    <h3>Profil Singkat</h3>
-                    <p>
-                        Saya adalah mahasiswi semester 5 jurusan Akuntansi di Universitas Siliwangi (UNSIL) Tasikmalaya 
-                        yang memiliki minat besar dalam analisis keuangan, audit, dan perencanaan pajak. Dengan latar 
-                        belakang pendidikan yang solid dan pengalaman praktis, saya berkomitmen untuk terus mengembangkan 
-                        kemampuan profesional di bidang akuntansi.
-                    </p>
-                    <p>
-                        Saya percaya bahwa akuntansi bukan hanya tentang angka, tetapi juga tentang memahami 
-                        cerita di balik data keuangan dan memberikan wawasan yang berharga untuk pengambilan 
-                        keputusan strategis.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-birthday-cake"></i>
-                            <span><strong>Usia:</strong> 21 Tahun</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>Lokasi:</strong> Tasikmalaya, Jawa Barat</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span><strong>Pendidikan:</strong> S1 Akuntansi</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span><strong>Email:</strong> email@example.com</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Akuntansi Manajemen</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title" data-text="Education">Pendidikan</h2>
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Sarjana Akuntansi (S1)</h3>
-                        <h4>Universitas Siliwangi (UNSIL)</h4>
-                        <span class="timeline-date">2022 - Sekarang (Semester 5)</span>
-                        <p>
-                            IPK: 3.75/4.00<br>
-                            Fokus pada Akuntansi Keuangan, Audit, Perpajakan, dan Sistem Informasi Akuntansi.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>SMA Negeri 2 Tasikmalaya</h3>
-                        <h4>Jurusan IPS</h4>
-                        <span class="timeline-date">2019 - 2022</span>
-                        <p>
-                            Rata-rata nilai: 88/100<br>
-                            Prestasi: Aktif dalam kegiatan organisasi dan ekstrakurikuler
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>SMP Negeri 2 Tasikmalaya</h3>
-                        <h4>Pendidikan Menengah Pertama</h4>
-                        <span class="timeline-date">2016 - 2019</span>
-                        <p>
-                            Rata-rata nilai: 85/100<br>
-                            Aktif dalam kegiatan akademik dan organisasi sekolah
-                        </p>
-                    </div>
-                </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Perpajakan</span>
+                <span class="skill-pct">80%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="80"></div>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title" data-text="Skills">Keahlian</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-calculator"></i> Teknis Akuntansi</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">Akuntansi Keuangan</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%">90%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Audit & Assurance</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%">85%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Perpajakan</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%">80%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Akuntansi Manajemen</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%">88%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code"></i> Software & Tools</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">Microsoft Excel</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%">95%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">MYOB Accounting</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%">85%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Accurate Accounting</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 82%">82%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">QuickBooks</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 78%">78%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Analisis & Pelaporan</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">Analisis Laporan Keuangan</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%">92%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Budgeting & Forecasting</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 87%">87%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Cost Analysis</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%">85%</div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Data Visualization</div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 83%">83%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Detail-Oriented</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Time Management</span>
-                        <span class="skill-tag">Komunikasi</span>
-                        <span class="skill-tag">Teamwork</span>
-                        <span class="skill-tag">Critical Thinking</span>
-                        <span class="skill-tag">Integritas</span>
-                        <span class="skill-tag">Analytical Skills</span>
-                    </div>
-                </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Auditing</span>
+                <span class="skill-pct">78%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="78"></div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title" data-text="Experience">Pengalaman & Proyek</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="card-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Intern Accounting</h3>
-                    <h4>PT. Contoh Perusahaan Tbk</h4>
-                    <span class="date">Jan 2024 - Apr 2024</span>
-                    <ul>
-                        <li>Membantu dalam penyusunan laporan keuangan bulanan</li>
-                        <li>Melakukan rekonsiliasi bank dan analisis variance</li>
-                        <li>Memproses invoice dan dokumentasi transaksi</li>
-                        <li>Menggunakan sistem ERP untuk input data keuangan</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Tax Assistant</h3>
-                    <h4>Kantor Konsultan Pajak ABC</h4>
-                    <span class="date">Jun 2023 - Agu 2023</span>
-                    <ul>
-                        <li>Membantu penyusunan SPT Tahunan PPh Badan dan Orang Pribadi</li>
-                        <li>Melakukan input data perpajakan dan e-Filing</li>
-                        <li>Analisis kewajiban perpajakan klien</li>
-                        <li>Mempelajari peraturan perpajakan terbaru</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Proyek Penelitian</h3>
-                    <h4>Analisis Kinerja Keuangan Perusahaan</h4>
-                    <span class="date">Sep 2023 - Des 2023</span>
-                    <ul>
-                        <li>Menganalisis laporan keuangan 5 perusahaan manufaktur</li>
-                        <li>Menggunakan ratio analysis dan trend analysis</li>
-                        <li>Membuat rekomendasi perbaikan kinerja</li>
-                        <li>Presentasi hasil penelitian di seminar kampus</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Bendahara</h3>
-                    <h4>Himpunan Mahasiswa Akuntansi</h4>
-                    <span class="date">2022 - 2023</span>
-                    <ul>
-                        <li>Mengelola keuangan organisasi senilai 50+ juta rupiah</li>
-                        <li>Membuat laporan keuangan periodik yang transparan</li>
-                        <li>Mengkoordinasi fundraising dan sponsorship</li>
-                        <li>Menyusun anggaran untuk berbagai acara</li>
-                    </ul>
-                </div>
+        <div class="skill-category" id="skill-software">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">💻</div>
+            <h3>Software & Tools</h3>
+          </div>
+          <div class="skill-tools">
+            <div class="tool-badge" id="tool-excel">
+              <span class="tool-icon">📗</span>
+              <span class="tool-name">Microsoft Excel</span>
+              <span class="tool-level expert">Mahir</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="certifications">
-        <div class="container">
-            <h2 class="section-title" data-text="Awards">Sertifikasi & Penghargaan</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <i class="fas fa-certificate"></i>
-                    <h4>Brevet A & B Pajak</h4>
-                    <p>IAI - 2023</p>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-certificate"></i>
-                    <h4>Microsoft Excel Expert</h4>
-                    <p>Microsoft - 2023</p>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-trophy"></i>
-                    <h4>Juara 2 Kompetisi Akuntansi</h4>
-                    <p>Tingkat Nasional - 2023</p>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-certificate"></i>
-                    <h4>MYOB Accounting Software</h4>
-                    <p>MYOB - 2022</p>
-                </div>
+            <div class="tool-badge" id="tool-myob">
+              <span class="tool-icon">🔵</span>
+              <span class="tool-name">MYOB Accounting</span>
+              <span class="tool-level advanced">Lanjutan</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-text="Contact">Hubungi Saya</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Informasi Kontak</h3>
-                    <div class="info-box">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>email@example.com</p>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telepon</h4>
-                            <p>+62 812-3456-7890</p>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Lokasi</h4>
-                            <p>Tasikmalaya, Jawa Barat</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Kirim Pesan</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Nama Lengkap" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" placeholder="Subjek" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Pesan Anda" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                    </form>
-                </div>
+            <div class="tool-badge" id="tool-sap">
+              <span class="tool-icon">🟠</span>
+              <span class="tool-name">SAP FI Module</span>
+              <span class="tool-level intermediate">Menengah</span>
             </div>
+            <div class="tool-badge" id="tool-accurate">
+              <span class="tool-icon">🟣</span>
+              <span class="tool-name">Accurate Software</span>
+              <span class="tool-level advanced">Lanjutan</span>
+            </div>
+            <div class="tool-badge" id="tool-spss">
+              <span class="tool-icon">📊</span>
+              <span class="tool-name">SPSS Statistics</span>
+              <span class="tool-level intermediate">Menengah</span>
+            </div>
+            <div class="tool-badge" id="tool-power-bi">
+              <span class="tool-icon">📈</span>
+              <span class="tool-name">Power BI</span>
+              <span class="tool-level intermediate">Menengah</span>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Portfolio Mahasiswi Akuntansi. All rights reserved.</p>
+        <div class="skill-category" id="skill-soft">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🌟</div>
+            <h3>Soft Skills</h3>
+          </div>
+          <div class="softskills-grid">
+            <div class="softskill-item">
+              <div class="ss-icon">🎯</div>
+              <span>Ketelitian Tinggi</span>
+            </div>
+            <div class="softskill-item">
+              <div class="ss-icon">🤝</div>
+              <span>Kerja Tim</span>
+            </div>
+            <div class="softskill-item">
+              <div class="ss-icon">⏰</div>
+              <span>Manajemen Waktu</span>
+            </div>
+            <div class="softskill-item">
+              <div class="ss-icon">🗣️</div>
+              <span>Komunikasi</span>
+            </div>
+            <div class="softskill-item">
+              <div class="ss-icon">🧠</div>
+              <span>Berpikir Kritis</span>
+            </div>
+            <div class="softskill-item">
+              <div class="ss-icon">📌</div>
+              <span>Orientasi Detail</span>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="skill-category" id="skill-lang">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🌐</div>
+            <h3>Bahasa</h3>
+          </div>
+          <div class="lang-list">
+            <div class="lang-item">
+              <div class="lang-flag">🇮🇩</div>
+              <div class="lang-info">
+                <span class="lang-name">Bahasa Indonesia</span>
+                <span class="lang-level">Native / C2</span>
+              </div>
+              <div class="lang-dots">
+                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                  class="dot filled"></span><span class="dot filled"></span>
+              </div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-flag">🇬🇧</div>
+              <div class="lang-info">
+                <span class="lang-name">English</span>
+                <span class="lang-level">Professional / B2</span>
+              </div>
+              <div class="lang-dots">
+                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                  class="dot filled"></span><span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label">Portofolio</div>
+      <h2 class="section-title">Proyek & Karya</h2>
+      <p class="section-sub">Kumpulan proyek akademis dan mandiri yang mencerminkan kompetensi saya di bidang akuntansi.
+      </p>
+
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-btn active" data-filter="all" id="filter-all">Semua</button>
+        <button class="filter-btn" data-filter="audit" id="filter-audit">Audit</button>
+        <button class="filter-btn" data-filter="keuangan" id="filter-keuangan">Keuangan</button>
+        <button class="filter-btn" data-filter="pajak" id="filter-pajak">Perpajakan</button>
+        <button class="filter-btn" data-filter="riset" id="filter-riset">Riset</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <article class="project-card" data-category="audit" id="proj-audit-internal">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">🔍</span>
+            </div>
+            <span class="project-badge audit">Audit</span>
+          </div>
+          <h3>Simulasi Audit Internal PT. Nusantara Tbk</h3>
+          <p>Melakukan simulasi audit internal lengkap mencakup perencanaan, pelaksanaan fieldwork, dan penyusunan
+            laporan audit atas siklus pendapatan perusahaan manufaktur.</p>
+          <div class="project-tags">
+            <span>ISA Standards</span>
+            <span>Sampling Audit</span>
+            <span>Kertas Kerja</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">📅 Semester 3 · 2023</span>
+            <a href="#" class="project-link" id="link-audit-internal">Lihat Detail →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="keuangan" id="proj-laporan-keu">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">📊</span>
+            </div>
+            <span class="project-badge keuangan">Keuangan</span>
+          </div>
+          <h3>Analisis Rasio Keuangan Perusahaan LQ45</h3>
+          <p>Analisis komprehensif rasio likuiditas, solvabilitas, profitabilitas, dan efisiensi dari 10 perusahaan
+            terpilih indeks LQ45 selama 5 tahun.</p>
+          <div class="project-tags">
+            <span>Ratio Analysis</span>
+            <span>Excel Advanced</span>
+            <span>Visualisasi Data</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">📅 Semester 4 · 2023</span>
+            <a href="#" class="project-link" id="link-laporan-keu">Lihat Detail →</a>
+          </div>
+        </article>
+
+        <article class="project-card featured" data-category="riset" id="proj-riset">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">&#x1F4DD;</span>
+            </div>
+            <span class="project-badge riset">Riset</span>
+          </div>
+          <h3>Analisis Kinerja Keuangan Perusahaan BUMN di BEI</h3>
+          <p>Penelitian kuantitatif menganalisis kinerja keuangan perusahaan BUMN yang terdaftar di BEI menggunakan
+            metode analisis rasio dan perbandingan antar periode 2021&ndash;2023.
+          </p>
+          <div class="project-tags">
+            <span>SPSS</span>
+            <span>Ratio Analysis</span>
+            <span>Excel</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">&#x1F4C5; Semester 4 &middot; 2024</span>
+            <a href="#" class="project-link" id="link-riset">Lihat Detail &#8594;</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="pajak" id="proj-pajak">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">📋</span>
+            </div>
+            <span class="project-badge pajak">Perpajakan</span>
+          </div>
+          <h3>Simulasi Perencanaan Pajak UMKM</h3>
+          <p>Simulasi perencanaan dan pelaporan pajak untuk UMKM, mencakup SPT Tahunan Badan, rekonsiliasi
+            fiskal-komersial, dan optimasi beban pajak sesuai UU HPP.</p>
+          <div class="project-tags">
+            <span>UU HPP</span>
+            <span>SPT Tahunan</span>
+            <span>Rekonsiliasi Fiskal</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">📅 Semester 4 · 2024</span>
+            <a href="#" class="project-link" id="link-pajak">Lihat Detail →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="keuangan" id="proj-myob">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">💻</span>
+            </div>
+            <span class="project-badge keuangan">Keuangan</span>
+          </div>
+          <h3>Implementasi Sistem Akuntansi MYOB</h3>
+          <p>Setup dan implementasi sistem pembukuan digital menggunakan MYOB AccountRight untuk perusahaan dagang,
+            meliputi jurnal otomatis, rekonsiliasi bank, dan laporan keuangan bulanan.</p>
+          <div class="project-tags">
+            <span>MYOB</span>
+            <span>Pembukuan</span>
+            <span>Rekonsiliasi Bank</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">📅 Semester 3 · 2023</span>
+            <a href="#" class="project-link" id="link-myob">Lihat Detail →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="audit" id="proj-fraud">
+          <div class="project-header">
+            <div class="project-icon-wrap">
+              <span class="project-icon">🛡️</span>
+            </div>
+            <span class="project-badge audit">Audit</span>
+          </div>
+          <h3>Studi Kasus Deteksi Fraud Laporan Keuangan</h3>
+          <p>Analisis kasus manipulasi laporan keuangan menggunakan Beneish M-Score model dan teknik data analytics
+            untuk mendeteksi potensi kecurangan akuntansi.</p>
+          <div class="project-tags">
+            <span>Fraud Detection</span>
+            <span>Beneish M-Score</span>
+            <span>Data Analytics</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date">📅 Semester 4 · 2024</span>
+            <a href="#" class="project-link" id="link-fraud">Lihat Detail →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-label">Perjalanan</div>
+      <h2 class="section-title">Pengalaman & Pendidikan</h2>
+
+      <div class="timeline-wrapper">
+        <div class="timeline">
+
+          <div class="timeline-item left" id="exp-hima">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tc-header">
+                <span class="tc-period">2023 &ndash; 2024</span>
+                <span class="tc-type org">Organisasi</span>
+              </div>
+              <h4>Bendahara Divisi Keuangan</h4>
+              <p class="tc-place">&#x1F393; Himpunan Mahasiswa Akuntansi &ndash; UNPAD</p>
+              <p>Membantu pengelolaan anggaran organisasi, menyusun laporan keuangan semesteran, dan berkoordinasi
+                dalam 10 program kerja aktif bersama tim divisi keuangan.</p>
+              <div class="tc-skills">
+                <span>Manajemen Anggaran</span>
+                <span>Pelaporan</span>
+                <span>Kerja Tim</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item right" id="exp-aslab">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tc-header">
+                <span class="tc-period">2024 &ndash; Sekarang</span>
+                <span class="tc-type org">Akademik</span>
+              </div>
+              <h4>Asisten Laboratorium</h4>
+              <p class="tc-place">&#x1F3EB; Laboratorium Akuntansi &ndash; UNPAD</p>
+              <p>Membantu pelaksanaan praktikum mata kuliah Akuntansi Keuangan Menengah, membimbing mahasiswa
+                dalam pengerjaan kasus akuntansi, dan menyiapkan modul latihan.</p>
+              <div class="tc-skills">
+                <span>Akuntansi Keuangan</span>
+                <span>Pengajaran</span>
+                <span>Modul</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item right" id="exp-unpad">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tc-header">
+                <span class="tc-period">2022 – Sekarang</span>
+                <span class="tc-type edu">Pendidikan</span>
+              </div>
+              <h4>S1 Akuntansi</h4>
+              <p class="tc-place">🎓 Universitas Padjadjaran – Bandung</p>
+              <p>Penerima beasiswa Prestasi Akademik. Aktif sebagai asisten laboran mata kuliah Akuntansi Keuangan
+                Menengah dan anggota tim riset dosen.</p>
+              <div class="tc-skills">
+                <span>Beasiswa</span>
+                <span>Asisten Lab</span>
+                <span>Riset</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section class="certifications section" id="certifications">
+    <div class="container">
+      <div class="section-label">Sertifikasi</div>
+      <h2 class="section-title">Sertifikat & Penghargaan</h2>
+
+      <div class="certs-grid">
+        <div class="cert-card" id="cert-brevet">
+          <div class="cert-icon">📜</div>
+          <div class="cert-body">
+            <h4>Brevet A & B Perpajakan</h4>
+            <p>IKATAN AKUNTAN INDONESIA (IAI)</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <div class="cert-badge verified">✓ Terverifikasi</div>
+        </div>
+        <div class="cert-card" id="cert-myob">
+          <div class="cert-icon">💻</div>
+          <div class="cert-body">
+            <h4>MYOB Accounting Certified</h4>
+            <p>MYOB Asia Pacific</p>
+            <span class="cert-year">2023</span>
+          </div>
+          <div class="cert-badge verified">✓ Terverifikasi</div>
+        </div>
+        <div class="cert-card" id="cert-excel">
+          <div class="cert-icon">📗</div>
+          <div class="cert-body">
+            <h4>Microsoft Excel Expert</h4>
+            <p>Microsoft Office Specialist (MOS)</p>
+            <span class="cert-year">2023</span>
+          </div>
+          <div class="cert-badge verified">✓ Terverifikasi</div>
+        </div>
+        <div class="cert-card" id="cert-cia">
+          <div class="cert-icon">🔍</div>
+          <div class="cert-body">
+            <h4>Fundamentals of Internal Audit</h4>
+            <p>The Institute of Internal Auditors (IIA)</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <div class="cert-badge verified">✓ Terverifikasi</div>
+        </div>
+        <div class="cert-card" id="cert-bi">
+          <div class="cert-icon">📈</div>
+          <div class="cert-body">
+            <h4>Power BI Data Analyst</h4>
+            <p>Microsoft Learn</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <div class="cert-badge verified">✓ Terverifikasi</div>
+        </div>
+        <div class="cert-card" id="cert-juara">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-body">
+            <h4>Juara 2 – National Accounting Competition</h4>
+            <p>Olimpiade Akuntansi Nasional · FEUI 2023</p>
+            <span class="cert-year">2023</span>
+          </div>
+          <div class="cert-badge award">🏅 Penghargaan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">Hubungi Saya</div>
+      <h2 class="section-title">Mari Berkolaborasi</h2>
+      <p class="section-sub">Terbuka untuk kesempatan magang, kerja sama, dan diskusi seputar akuntansi & keuangan.</p>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="contact-card-item" id="contact-email">
+            <div class="ci-icon">📧</div>
+            <div>
+              <span class="ci-label">Email</span>
+              <a href="mailto:dila.ramadhani@student.unpad.ac.id">dila.ramadhani@student.unpad.ac.id</a>
+            </div>
+          </div>
+          <div class="contact-card-item" id="contact-linkedin">
+            <div class="ci-icon">💼</div>
+            <div>
+              <span class="ci-label">LinkedIn</span>
+              <a href="https://linkedin.com/in/dilaramadhani" target="_blank">linkedin.com/in/dilaramadhani</a>
+            </div>
+          </div>
+          <div class="contact-card-item" id="contact-wa">
+            <div class="ci-icon">📱</div>
+            <div>
+              <span class="ci-label">WhatsApp</span>
+              <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+            </div>
+          </div>
+          <div class="contact-card-item" id="contact-location">
+            <div class="ci-icon">📍</div>
+            <div>
+              <span class="ci-label">Lokasi</span>
+              <span>Bandung, Jawa Barat, Indonesia</span>
+            </div>
+          </div>
+
+          <div class="availability-badge" id="availability-badge">
+            <span class="avail-dot"></span>
+            <span>Tersedia untuk Magang &amp; Kolaborasi</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Keperluan</label>
+            <select id="subject" name="subject">
+              <option value="">Pilih topik...</option>
+              <option value="magang">Tawaran Magang</option>
+              <option value="kolaborasi">Kolaborasi Proyek</option>
+              <option value="konsultasi">Konsultasi Keuangan</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan Anda di sini..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            <span>Kirim via WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-icon">₿</span>
+          <span class="logo-text">Dila<span class="logo-accent">.</span></span>
+          <p>Mahasiswi Akuntansi yang berdedikasi untuk memberikan solusi keuangan yang akurat dan profesional.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#about">Tentang Saya</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#experience">Pengalaman</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Keahlian</h4>
+          <ul>
+            <li><a href="#projects">Analisis Keuangan</a></li>
+            <li><a href="#projects">Audit Internal</a></li>
+            <li><a href="#projects">Perpajakan</a></li>
+            <li><a href="#projects">Riset Akuntansi</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dhila Fadliah · Dibuat dengan ❤️ untuk karir akuntansi yang gemilang</p>
+        <a href="#home" class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

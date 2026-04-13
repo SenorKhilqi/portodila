@@ -1,401 +1,287 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+/* ============================
+   SCRIPT.JS – Portfolio Interactive
+   ============================ */
+
+// ===== NAVBAR: Scroll & Active Link =====
+const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  // Scrolled class
+  if (window.scrollY > 60) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  // Active link
+  let current = '';
+  sections.forEach(sec => {
+    const sectionTop = sec.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = sec.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinksEl = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+  navLinksEl.classList.toggle('open');
+  hamburger.classList.toggle('active');
 });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+// Close menu on nav-link click (mobile)
+navLinksEl.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinksEl.classList.remove('open');
+    hamburger.classList.remove('active');
+  });
 });
 
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 70;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+// ===== COUNTER ANIMATION =====
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count);
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
 
-// Active Navigation Link on Scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Navbar Background on Scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = '#ffffff';
-        navbar.style.backdropFilter = 'none';
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
     }
-});
-
-// Animated Skill Bars on Scroll
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillBars = entry.target.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-const skillsSection = document.querySelector('.skills');
-if (skillsSection) {
-    observer.observe(skillsSection);
+    el.textContent = Math.floor(current);
+  }, 16);
 }
 
-// Form Submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        // Simple validation
-        if (name && email && subject && message) {
-            alert('Terima kasih! Pesan Anda telah dikirim. Saya akan segera menghubungi Anda kembali.');
-            contactForm.reset();
-        } else {
-            alert('Mohon lengkapi semua field yang diperlukan.');
-        }
-    });
-}
-
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.timeline-item, .experience-card, .cert-card');
+// ===== SCROLL REVEAL OBSERVER =====
+const revealTargets = document.querySelectorAll(
+  '.project-card, .skill-category, .cert-card, .timeline-card, .about-grid, .contact-card-item, .contact-form, .info-card'
+);
 
 const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-revealElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    revealObserver.observe(element);
-});
-
-// Typing Effect for Hero Title (Optional Enhancement)
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
-    let i = 0;
-    
-    function typeWriter() {
-        if (i < text.length) {
-            heroTitle.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-        }
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('reveal', 'visible');
+      }, i * 80);
+      revealObserver.unobserve(entry.target);
     }
-    
-    // Uncomment below to enable typing effect
-    // setTimeout(typeWriter, 500);
-}
+  });
+}, { threshold: 0.1 });
 
-// Back to Top Button
-const backToTopBtn = document.createElement('button');
-backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-backToTopBtn.className = 'back-to-top';
-backToTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: none;
-    z-index: 999;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-`;
+revealTargets.forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
 
-document.body.appendChild(backToTopBtn);
+// ===== COUNTER TRIGGER on HERO =====
+const counterEls = document.querySelectorAll('.stat-number[data-count]');
+const heroSection = document.getElementById('home');
+let counterTriggered = false;
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'block';
-    } else {
-        backToTopBtn.style.display = 'none';
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counterTriggered) {
+      counterTriggered = true;
+      counterEls.forEach(el => animateCounter(el));
     }
-});
+  });
+}, { threshold: 0.5 });
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+heroObserver.observe(heroSection);
 
-backToTopBtn.addEventListener('mouseenter', () => {
-    backToTopBtn.style.transform = 'translateY(-5px)';
-});
+// ===== SKILL BAR ANIMATION =====
+const skillBars = document.querySelectorAll('.skill-bar-fill');
 
-backToTopBtn.addEventListener('mouseleave', () => {
-    backToTopBtn.style.transform = 'translateY(0)';
-});
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bar = entry.target;
+      const width = bar.dataset.width;
+      setTimeout(() => {
+        bar.style.width = width + '%';
+      }, 150);
+      skillObserver.unobserve(bar);
+    }
+  });
+}, { threshold: 0.3 });
 
-// Loading Screen
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    setTimeout(() => {
-        loadingScreen.style.opacity = '0';
+skillBars.forEach(bar => skillObserver.observe(bar));
+
+// ===== PROJECT FILTER =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    projectCards.forEach((card, i) => {
+      const category = card.dataset.category;
+      const show = filter === 'all' || category === filter;
+
+      if (show) {
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 1000);
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+          card.style.transition = `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms`;
+        }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(10px)';
+        setTimeout(() => { card.style.display = 'none'; }, 350);
+      }
+    });
+  });
 });
 
-// Particle Effect for Hero Section
-function createParticles() {
-    const hero = document.querySelector('.hero');
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    particlesContainer.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-    `;
-    
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: ${Math.random() * 5 + 2}px;
-            height: ${Math.random() * 5 + 2}px;
-            background: rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2});
-            border-radius: 50%;
-            top: ${Math.random() * 100}%;
-            left: ${Math.random() * 100}%;
-            animation: float-up ${Math.random() * 10 + 10}s linear infinite;
-            animation-delay: ${Math.random() * 5}s;
-        `;
-        particlesContainer.appendChild(particle);
+// ===== CONTACT FORM – Kirim ke WhatsApp =====
+const contactForm = document.getElementById('contact-form');
+const WA_NUMBER = '6287263534508'; // 087263534508 → format internasional
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value.trim();
+
+  // Label topik yang lebih ramah
+  const subjectLabel = {
+    magang: 'Tawaran Magang',
+    kolaborasi: 'Kolaborasi Proyek',
+    konsultasi: 'Konsultasi Keuangan',
+    lainnya: 'Lainnya',
+  }[subject] || subject || 'Tidak disebutkan';
+
+  // Susun teks pesan WA
+  const waText =
+    `Halo Dila 👋\n\n` +
+    `Nama    : ${name}\n` +
+    `Email   : ${email}\n` +
+    `Keperluan: ${subjectLabel}\n\n` +
+    `Pesan:\n${message}\n\n` +
+    `_Dikirim melalui portofolio_`;
+
+  const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+  // Buka WhatsApp di tab baru
+  window.open(waUrl, '_blank');
+
+  // Feedback tombol
+  const btn = document.getElementById('btn-submit');
+  const originalContent = btn.innerHTML;
+
+  btn.innerHTML = `<span>Membuka WhatsApp… ✓</span>`;
+  btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+  btn.style.boxShadow = '0 8px 30px rgba(34,197,94,0.35)';
+
+  setTimeout(() => {
+    btn.innerHTML = originalContent;
+    btn.style.background = '';
+    btn.style.boxShadow = '';
+    contactForm.reset();
+  }, 3000);
+});
+
+// ===== SMOOTH SCROLL for NAV =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
-    
-    hero.insertBefore(particlesContainer, hero.firstChild);
-    
-    // Add particle animation CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float-up {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+  });
+});
+
+// ===== FLOATING CARDS: Reset on mobile =====
+function handleMobileLayout() {
+  const floatingCards = document.querySelectorAll('.floating-card');
+  if (window.innerWidth < 768) {
+    floatingCards.forEach(c => c.style.display = 'none');
+  } else {
+    floatingCards.forEach(c => c.style.display = '');
+  }
 }
 
-// Call particle creation on load
-createParticles();
+handleMobileLayout();
+window.addEventListener('resize', handleMobileLayout);
 
-// Cursor Trail Effect
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-
+// ===== PARALLAX EFFECT on ORBS =====
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+  if (window.innerWidth < 1024) return;
+  const x = (e.clientX / window.innerWidth - 0.5) * 30;
+  const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+  document.querySelectorAll('.orb').forEach((orb, i) => {
+    const depth = (i + 1) * 0.5;
+    orb.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+  });
 });
 
+// ===== PROFILE IMAGE FALLBACK =====
+const profileImg = document.getElementById('profile-img');
+if (profileImg) {
+  profileImg.onerror = () => {
+    profileImg.src = '';
+    profileImg.style.background = 'linear-gradient(135deg, #7e22ce, #c084fc)';
+    profileImg.alt = 'DF';
+
+    // Create initials fallback
+    const ring = profileImg.parentElement;
+    profileImg.style.display = 'none';
+    const initials = document.createElement('div');
+    initials.textContent = 'DF';
+    initials.style.cssText = `
+      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-serif); font-size:4rem; font-weight:700; color:white;
+      border-radius:50%; background:linear-gradient(135deg,#7e22ce,#c084fc);
+    `;
+    ring.appendChild(initials);
+  };
+}
+
+// ===== CURSOR GLOW EFFECT =====
 const cursor = document.createElement('div');
-cursor.className = 'cursor-trail';
 cursor.style.cssText = `
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.2));
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.3s ease;
-    mix-blend-mode: screen;
+  position: fixed; width: 300px; height: 300px; pointer-events: none;
+  background: radial-gradient(circle, rgba(168,85,247,0.07) 0%, transparent 70%);
+  border-radius: 50%; transform: translate(-50%, -50%);
+  transition: left 0.1s ease, top 0.1s ease;
+  z-index: 0; mix-blend-mode: screen;
 `;
 document.body.appendChild(cursor);
 
-function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.1;
-    cursorY += (mouseY - cursorY) * 0.1;
-    cursor.style.left = cursorX - 10 + 'px';
-    cursor.style.top = cursorY - 10 + 'px';
-    requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// Interactive hover effects for cards
-document.querySelectorAll('.experience-card, .cert-card, .skill-category').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-    });
+document.addEventListener('mousemove', (e) => {
+  if (window.innerWidth < 1024) return;
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
 });
 
-// Parallax Effect on Scroll
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero-content');
-    
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// Counter Animation for Skills
-function animateCounter(element, target) {
-    let current = 0;
-    const increment = target / 100;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target + '%';
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.ceil(current) + '%';
-        }
-    }, 20);
-}
-
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach(bar => {
-                const targetWidth = bar.style.width;
-                const targetValue = parseInt(targetWidth);
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = targetWidth;
-                }, 100);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const skillsSections = document.querySelectorAll('.skills');
-skillsSections.forEach(section => skillObserver.observe(section));
-
-// Text Glitch Effect on Hover
-document.querySelectorAll('.hero-title, .section-title').forEach(title => {
-    title.addEventListener('mouseenter', function() {
-        this.style.animation = 'none';
-        setTimeout(() => {
-            this.style.animation = 'glitch 0.3s ease';
-        }, 10);
-    });
-});
-
-const glitchStyle = document.createElement('style');
-glitchStyle.textContent = `
-    @keyframes glitch {
-        0% { transform: translate(0); }
-        20% { transform: translate(-2px, 2px); }
-        40% { transform: translate(-2px, -2px); }
-        60% { transform: translate(2px, 2px); }
-        80% { transform: translate(2px, -2px); }
-        100% { transform: translate(0); }
-    }
-`;
-document.head.appendChild(glitchStyle);
-
-// Console Log for Developer
-console.log('%c Portfolio Website Loaded Successfully! ', 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 16px; padding: 10px;');
-console.log('%c Developed with ❤️ for Mahasiswi Akuntansi ', 'color: #667eea; font-size: 14px;');
-console.log('%c Enhanced with Modern Animations & Effects ', 'color: #764ba2; font-size: 12px;');
+console.log('%c Portofolio Dila Ramadhani', 'color: #c084fc; font-size: 20px; font-weight: bold; font-family: serif;');
+console.log('%c Mahasiswi Akuntansi | UNPAD 2022', 'color: #a855f7; font-size: 12px;');
