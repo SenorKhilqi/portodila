@@ -1282,8 +1282,8 @@ img { max-width: 100%; display: block; }
 
 .cert-card {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 0;
   background: var(--bg-card);
   background-image: var(--grad-card);
   border: 1px solid var(--border);
@@ -1294,18 +1294,71 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 2px 16px rgba(0,0,0,0.1);
 }
 
+.cert-card-top {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex: 1;
+}
+
 .cert-card:hover {
   border-color: var(--border-strong);
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(169,109,254,0.15);
 }
 
-.cert-icon { font-size: 1.6rem; flex-shrink: 0; }
+.cert-icon { font-size: 1.6rem; flex-shrink: 0; margin-bottom: 0.8rem; }
 
 .cert-body { flex: 1; }
 .cert-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.28rem; letter-spacing: -0.01em; }
 .cert-body p  { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 300; }
 .cert-year    { font-size: 0.7rem; color: var(--accent-bright); font-weight: 600; letter-spacing: 0.04em; }
+
+.cert-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: var(--trans-fast);
+  cursor: pointer;
+}
+
+.cert-btn-view {
+  background: rgba(169,109,254,0.12);
+  color: var(--accent-bright);
+  border: 1px solid rgba(169,109,254,0.25);
+}
+
+.cert-btn-view:hover {
+  background: rgba(169,109,254,0.22);
+  border-color: var(--accent-bright);
+  transform: translateY(-1px);
+}
+
+.cert-btn-dl {
+  background: rgba(74,222,128,0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.2);
+}
+
+.cert-btn-dl:hover {
+  background: rgba(74,222,128,0.2);
+  border-color: #4ade80;
+  transform: translateY(-1px);
+}
 
 .cert-badge {
   position: absolute;
@@ -1319,6 +1372,9 @@ img { max-width: 100%; display: block; }
 
 .cert-badge.verified { background: rgba(74,222,128,0.1);  color: #4ade80; }
 .cert-badge.award    { background: rgba(251,191,36,0.1);  color: var(--amber-400); }
+
+/* Grid 3 kolom untuk layar besar, sesuaikan di bawah */
+.certs-grid { grid-template-columns: repeat(3, 1fr); }
 
 /* ===========================
    CONTACT
