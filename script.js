@@ -156,7 +156,7 @@ filterBtns.forEach(btn => {
 
 // ===== CONTACT FORM – Kirim ke WhatsApp =====
 const contactForm = document.getElementById('contact-form');
-const WA_NUMBER = '628782488909'; // 087824889090 → format internasional
+const WA_NUMBER = '6287824889090'; // 087824889090 → format internasional
 
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -177,11 +177,15 @@ contactForm.addEventListener('submit', (e) => {
   // Susun teks pesan WA
   const waText =
     `Halo Dila 👋\n\n` +
-    `Nama    : ${name}\n` +
-    `Email   : ${email}\n` +
+    `Perkenalkan, saya ${name}.\n\n` +
+    `📌 *Detail Kontak*\n` +
+    `Nama     : ${name}\n` +
+    `Email    : ${email}\n` +
     `Keperluan: ${subjectLabel}\n\n` +
-    `Pesan:\n${message}\n\n` +
-    `_Dikirim melalui portofolio_`;
+    `💬 *Pesan*\n` +
+    `${message}\n\n` +
+    `Terima kasih atas waktunya 🙏\n\n` +
+    `_Pesan ini dikirim melalui website portofolio_`;
 
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
 
@@ -283,5 +287,5 @@ document.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
-console.log('%c Portofolio Dila Ramadhani', 'color: #c084fc; font-size: 20px; font-weight: bold; font-family: serif;');
+console.log('%c Portofolio dhila fadliah', 'color: #c084fc; font-size: 20px; font-weight: bold; font-family: serif;');
 console.log('%c Mahasiswi Akuntansi | UNPAD 2022', 'color: #a855f7; font-size: 12px;');
