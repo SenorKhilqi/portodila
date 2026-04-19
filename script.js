@@ -156,7 +156,7 @@ filterBtns.forEach(btn => {
 
 // ===== CONTACT FORM – Kirim ke WhatsApp =====
 const contactForm = document.getElementById('contact-form');
-const WA_NUMBER = '6287263534508'; // 087263534508 → format internasional
+const WA_NUMBER = '628782488909'; // 087824889090 → format internasional
 
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
