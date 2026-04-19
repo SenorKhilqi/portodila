@@ -176,16 +176,16 @@ contactForm.addEventListener('submit', (e) => {
 
   // Susun teks pesan WA
   const waText =
-    `Halo Dila 👋\n\n` +
+    `Halo Dila\n\n` +
     `Perkenalkan, saya ${name}.\n\n` +
-    `📌 *Detail Kontak*\n` +
+    `Detail Kontak\n` +
     `Nama     : ${name}\n` +
     `Email    : ${email}\n` +
     `Keperluan: ${subjectLabel}\n\n` +
-    `💬 *Pesan*\n` +
+    `Pesan\n` +
     `${message}\n\n` +
-    `Terima kasih atas waktunya 🙏\n\n` +
-    `_Pesan ini dikirim melalui website portofolio_`;
+    `Terima kasih atas waktunya\n\n` +
+    `Pesan ini dikirim melalui website portofolio`;
 
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
 
